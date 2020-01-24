@@ -10,6 +10,7 @@
   <form id="form">
     <input type="text" name="name" id="name">
     <input type="text" name="github" id="github">
+    <input type="text" name="technology" id="technology">
     <button type="submit">Enviar</button>
   </form>
   <script>
@@ -20,6 +21,9 @@
       let nomeProfissional = document.getElementById('name').value;
       let githubProfissional = document.getElementById('github').value;
       let config = {
+        headers:{
+          "Content-Type":"application/json"
+        },
         method:"POST",
         body:JSON.stringify({name:nomeProfissional, github:githubProfissional})
       }
@@ -28,6 +32,8 @@
         return resposta.json();
       }).then(function(json){
         console.log(json);
+      }).catch(function(error){
+        console.log(error)
       })
     }
   </script>
