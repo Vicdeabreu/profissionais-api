@@ -18,6 +18,7 @@
     form.onsubmit = (event)=>{
       //Não queremos que ele vaia para outra página nei atualice
       event.preventDefault();
+      // exibirLoading(true); coloca una barra para exibir el 'cargando'
       let nomeProfissional = document.getElementById('name').value;
       let githubProfissional = document.getElementById('github').value;
       let config = {
@@ -35,6 +36,9 @@
       }).catch(function(error){
         console.log(error)
       })
+      // .finally(()=>{
+        // exibirLoading(false);
+    
     }
   </script>
 </body>
